@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/cashcard")
 class CashCardController {
+    private final CashCardRepository cashCardRepository;
+    private CashCardController(CashCardRepository cashCardRepository) {
+        this.cashCardRepository = cashCardRepository;
+    }
 
     @GetMapping("/{requestedID}")
     private ResponseEntity<String> findbyID() {
